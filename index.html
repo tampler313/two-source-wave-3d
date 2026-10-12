@@ -96,7 +96,7 @@ function setupOrbitControls(){
  view.addEventListener('pointermove',e=>{
   const prev=points.get(e.pointerId);if(!prev)return;
   if(points.size===1){
-   state.yaw+=(e.clientX-prev.x)*.007;
+   state.yaw-=(e.clientX-prev.x)*.007;
    state.pitch=Math.max(.10,Math.min(1.545,state.pitch+(e.clientY-prev.y)*.007));
   }else if(points.size===2){
    const other=[...points].find(([id])=>id!==e.pointerId)?.[1];
